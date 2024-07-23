@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 70%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 10px 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold; 
+}
+
+nav ul li a.active {
+    color: green;
+}
+
+nav ul li a.login {
+    border: 2px solid green;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: green;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a.login i {
+    margin-right: 5px;
+}
+
+#hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding-top: 70px;
+}
+
+.hero-image {
+    background-image: url('../images/Forest - Home.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-image h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+    margin-top: 20px; 
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    color: #2e7d32;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.highlight {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 40px 0;
+}
+
+#tree-nation p, #importance p, #sustainable-goals p {
+    font-size: 1.125em;
+    line-height: 1.5;
+}
+
+#tree-nation h2, #importance h2 {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mission, .vision {
+    width: 48%;
+    text-align: center;
+}
+
+.mission h3, .vision h3 {
+    color: #2e7d32; 
+}
+
+.sustainable-goals {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+footer {
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 40px 0;
+    background-image: url('../images/Forest 2 - Home.png'); 
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 10px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #ccc;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Nation</title>
+    <link rel="stylesheet" href="../css/DonateATree.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .features ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px; /* Increased padding to align check mark with text */
+        }
+
+        .features ul li::before {
+            content: "\2713"; /* Unicode for check mark */
+            color: #2e7d32;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0.2em; /* Adjusted to vertically center the check mark */
+        }
+
+        /* Highlight Tree Nation */
+        p .highlight {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 10px 0 20px 0; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#plant-now">Plant Now</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#login" class="login"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="join-tree-nation">
+            <div class="left-column">
+                <img src="../images/Main Pic - Donate a Tree.jpeg" alt="Forest Image" class="main-image">
+                <div class="thumbnail-row">
+                    <img src="../images/2nd Pic - Donate a Tree.jpg" alt="Thumbnail 1">
+                    <img src="../images/3rd Pic - Donate a Tree.jpg" alt="Thumbnail 2">
+                    <img src="../images/4th Pic - Donate a Tree.jpg" alt="Thumbnail 3">
+                    <img src="../images/5th Pic - Donate A Tree.jpg" alt="Thumbnail 4">
+                </div>
+            </div>
+            <div class="right-column">
+                <h1>JOIN TREE-NATION</h1>
+                <h2>One Tree, One Earth.</h2>
+                <hr>
+                <p>The <span class="highlight">Tree Nation</span> aims on strengthening ecosystems and promoting ecological balance through strategic tree planting. By improving soil health, the project enhances the functioning of vital biological processes that support overall ecosystem stability. Additionally, creating diverse habitats helps maintain intricate natural interactions, contributing to a more resilient and thriving environment.</p>
+                <div class="features">
+                    <ul>
+                        <li>Protect Wildlife and enhance Biodiversity</li>
+                        <li>Mitigate climate change</li>
+                        <li>Enhance soil health and ecosystem restoration</li>
+                    </ul>
+                </div>
+                <label for="number-of-trees">Number of Trees to be Planted:</label>
+                <div class="tree-buttons">
+                    <button onclick="selectTreeNumber(1)">1</button>
+                    <button onclick="selectTreeNumber(10)">10</button>
+                    <button onclick="selectTreeNumber(20)">20</button>
+                    <button onclick="selectTreeNumber(50)">50</button>
+                    <button onclick="selectTreeNumber('other')">OTHER</button>
+                </div>
+                <div class="donation-input">
+                    <input type="number" id="donation-amount" placeholder="50">
+                    <span>PHP</span>
+                </div>
+                <p>₱ <span id="total-amount">50.00</span> PHP</p>
+                <button class="plant-trees-button" onclick="plantTrees()">Plant Trees</button>
+                <div class="social-media">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function selectTreeNumber(number) {
+            const input = document.getElementById('donation-amount');
+            if (number === 'other') {
+                input.value = '';
+                input.focus();
+            } else {
+                input.value = number * 50;
+            }
+            document.getElementById('total-amount').textContent = input.value + '.00';
+        }
+
+        function plantTrees() {
+            alert('Thank you for your donation!');
+        }
+    </script>
+</body>
+</html>
