@@ -1,3 +1,5 @@
+// Author: DENISE
+
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/User.model");
 

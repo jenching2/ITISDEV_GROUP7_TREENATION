@@ -1,3 +1,5 @@
+// Author: DENISE
+
 const express = require("express");
 const { authenticate } = require("../middlewares/auth.middleware");
 

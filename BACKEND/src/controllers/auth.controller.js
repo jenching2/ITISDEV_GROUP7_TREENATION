@@ -1,5 +1,6 @@
+// Author: DENISE
+
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 const UserModel = require("../models/User.model");
 
 module.exports = {
