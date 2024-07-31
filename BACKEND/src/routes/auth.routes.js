@@ -1,4 +1,4 @@
-// Author: DENISE
+// Author: DENISE OCTAVIANO
 
 const express = require("express");
 const authController = require("../controllers/auth.controller");

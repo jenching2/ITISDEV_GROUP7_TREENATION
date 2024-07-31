@@ -1,4 +1,4 @@
-// Author: DENISE
+// Author: DENISE OCTAVIANO
 
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/User.model");

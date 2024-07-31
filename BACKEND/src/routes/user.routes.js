@@ -1,4 +1,4 @@
-// Author: DENISE
+// Author: DENISE OCTAVIANO
 
 const express = require("express");
 const { authenticate } = require("../middlewares/auth.middleware");
