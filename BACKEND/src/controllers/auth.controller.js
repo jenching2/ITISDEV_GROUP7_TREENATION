@@ -5,10 +5,10 @@ const UserModel = require("../models/User.model");
 
 module.exports = {
   register: async (req, res) => {
-    const { username, password, name } = req.body;
+    const { username, password, name, mobile, message } = req.body;
 
     try {
-      const user = new UserModel({ username, password, name });
+      const user = new UserModel({ username, password, name, mobile, message });
       await user.save();
 
       res.status(201).json({ message: "Registration Succesful", data: user });
