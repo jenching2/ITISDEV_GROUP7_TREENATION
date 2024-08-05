@@ -1,51 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up Details</title>
-    <link rel="stylesheet" href="../css/signup.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/signup.css" />
+  </head>
+  <body>
     <div class="signup-container">
-        <h1>Sign Up Details</h1>
-        <form>
-            <div class="input-group">
-                <label for="display-name">Display Name</label>
-                <input type="text" id="display-name" name="display-name" required>
-            </div>
-            <div class="input-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="input-group">
-                <label for="mobile">Mobile Phone Number</label>
-                <input type="text" id="mobile" name="mobile" required>
-            </div>
-            <div class="input-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-            <div class="input-group checkbox-group">
-                <input type="checkbox" id="terms" name="terms" required>
-                <label for="terms">I agree with the terms and agreements.</label>
-            </div>
-            <div class="input-group checkbox-group">
-                <input type="checkbox" id="updates" name="updates">
-                <label for="updates">I want periodic updates! #TreeNation</label>
-            </div>
-            <div class="input-group checkbox-group">
-                <input type="checkbox" id="anonymous" name="anonymous">
-                <label for="anonymous">Please keep my donations anonymous</label>
-            </div>
-            <div class="input-group button-group">
-                <button type="submit">Sign Up</button>
-            </div>
-        </form>
+      <h1>Sign Up Details</h1>
+      <form id="signup-form">
+        <div class="input-group">
+          <label for="display-name">Display Name</label>
+          <input type="text" id="display-name" name="display-name" required />
+        </div>
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="input-group">
+          <label for="mobile">Mobile Phone Number</label>
+          <input type="text" id="mobile" name="mobile" required />
+        </div>
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <div class="input-group checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms">I agree with the terms and agreements.</label>
+        </div>
+        <div class="input-group checkbox-group">
+          <input type="checkbox" id="updates" name="updates" />
+          <label for="updates">I want periodic updates! #TreeNation</label>
+        </div>
+        <div class="input-group checkbox-group">
+          <input type="checkbox" id="anonymous" name="anonymous" />
+          <label for="anonymous">Please keep my donations anonymous</label>
+        </div>
+        <div id="error-message" style="color: red"></div>
+        <div id="success-message" style="color: green"></div>
+        <div class="input-group button-group">
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
     </div>
-</body>
+    <script>
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const displayName = document.getElementById("display-name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const mobile = document.getElementById("mobile").value;
+          const message = document.getElementById("message").value;
+          const terms = document.getElementById("terms").checked;
+          const updates = document.getElementById("updates").checked;
+          const anonymous = document.getElementById("anonymous").checked;
+
+          try {
+            const response = await fetch(
+              "http://localhost:3000/api/auth/register",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  username: email, // Assuming backend uses 'username' for email
+                  displayName: displayName,
+                  password: password,
+                  mobile: mobile,
+                  message: message,
+                  terms: terms,
+                  updates: updates,
+                  anonymous: anonymous,
+                }),
+              }
+            );
+
+            const result = await response.json();
+
+            if (response.ok) {
+              document.getElementById("success-message").innerText =
+                "Registration successful!";
+              document.getElementById("error-message").innerText = "";
+              // Optionally redirect or reset form
+              window.location.href = "/ITISDEV/html/login.html";
+            } else {
+              document.getElementById("error-message").innerText =
+                result.message || "Registration failed";
+              document.getElementById("success-message").innerText = "";
+            }
+          } catch (error) {
+            document.getElementById("error-message").innerText =
+              "An error occurred. Please try again.";
+            document.getElementById("success-message").innerText = "";
+          }
+        });
+    </script>
+  </body>
 </html>

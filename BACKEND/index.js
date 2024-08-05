@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const db = require("./src/db/connection");
 const routes = require("./src/routes");
@@ -12,6 +13,9 @@ db();
 
 // Use express JSON
 app.use(express.json());
+
+// Enable CORS
+app.use(cors());
 
 // Connect routes
 app.use("/api", routes);
